@@ -37,18 +37,44 @@ export default function Home() {
 
       <main className={styles.main}>
         <p>Selamat data di situs beritaagakngawur.com</p>
-        <p>show image with html tag</p>
-        <img src="/beach.png" alt="" width={200} height={200}/>
-        <p>show next/image public folder</p>
-        <Image src="/beach.png" alt="" width={200} height={200}/>
-        <p>show next/image another folder</p>
-        <Image src={ssImg} alt="" width={200} height={200}/>
-        <p>show next/image outside image</p>
-        <Image 
-          src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=489&q=80"
-          alt="" width={200}
-          height={200}
-        />
+
+        <div className={styles.grid}>
+          <a href="#" className={styles.card}>
+            <h2>Global CSS &rarr;</h2>
+            <p>ini font nya dari global.css pakai font Lucida Console</p>
+          </a>
+
+          <a href="#" className={styles.card}>
+            <h2 className={styles.cardp}>CSS Module &rarr;</h2>
+            <p className={styles.cardp}>ini font nya dari Home.module.css pakai font Fira Sans</p>
+          </a>
+
+          <a
+            href="#"
+            className={styles.card}
+          >
+            <h2>Examples &rarr;</h2>
+            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          </a>
+
+          <a
+            href="#"
+            className={styles.card}
+          >
+            <h2 className='cardh2'>CSS in JS &rarr;</h2>
+            <p className='cardh2'>ini font nya dari css in js pakai font Courier New</p>
+          </a>
+          <style jsx>
+            {
+              `
+                .cardh2 {
+                  font-family: Courier New
+                }
+              `
+            }
+          </style>
+        </div>
+
       </main>
 
       <footer className={styles.footer}>
