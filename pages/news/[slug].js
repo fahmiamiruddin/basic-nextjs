@@ -1,6 +1,8 @@
 import { useRouter } from "next/router"
 import Head from 'next/head'
+import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
+import ssImg from '../../assets/ss.png'
 
 const Berita = () => {
   const router = useRouter();
@@ -14,8 +16,10 @@ const Berita = () => {
       </Head>
 
       <h3>Berita Hari ini</h3>
-      <p>judul: {query.title}</p>
+      <Image src={ssImg} alt="" width={200} height={200} style={{border:'1px solid grey'}}/>
+      <p><b>judul: {query.title}</b></p>
       <p>isi: {query.content}</p>
+      <p>Img Url: ../../assets/ss.png</p>
     </div>
   )
 }

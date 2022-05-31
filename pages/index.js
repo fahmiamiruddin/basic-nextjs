@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import ssImg from '../assets/ss.png'
 
 export default function Home() {
   return (
@@ -36,6 +37,18 @@ export default function Home() {
 
       <main className={styles.main}>
         <p>Selamat data di situs beritaagakngawur.com</p>
+        <p>show image with html tag</p>
+        <img src="/beach.png" alt="" width={200} height={200}/>
+        <p>show next/image public folder</p>
+        <Image src="/beach.png" alt="" width={200} height={200}/>
+        <p>show next/image another folder</p>
+        <Image src={ssImg} alt="" width={200} height={200}/>
+        <p>show next/image outside image</p>
+        <Image 
+          src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=489&q=80"
+          alt="" width={200}
+          height={200}
+        />
       </main>
 
       <footer className={styles.footer}>
