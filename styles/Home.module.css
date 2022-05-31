@@ -114,3 +114,20 @@
     flex-direction: column;
   }
 }
+
+.navwrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  padding: 2px;
+}
+
+.navmenu {
+  margin: 10px;
+}
+
+.none {
+  text-decoration: none;
+  color: black;
+}
