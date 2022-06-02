@@ -16,7 +16,7 @@ export default function Home() {
           <meta name="description" content="Learn Basic NextJS" />
       </Head>
       <div className={styles.navwrapper}>
-        <h3 className='none'>beritaagakngawur.com</h3>
+        <h3 className='none'>{process.env.webname}</h3>
         <nav>
           <Link 
             href='/books'
@@ -43,35 +43,37 @@ export default function Home() {
       </div>
 
       <main className={styles.main}>
-        <p>Selamat data di situs beritaagakngawur.com</p>
+        <p>Selamat data di situs {process.env.webname}</p>
         <DynamicComponent />
 
         <div className={styles.grid}>
-          <a href="#" className={styles.card}>
-            <h2>Global CSS &rarr;</h2>
-            <p>ini font nya dari global.css pakai font Lucida Console</p>
-          </a>
+          <Link href='/meals/csr'>
+            <div className={styles.card}>
+              <h2>CSR &rarr;</h2>
+              <p>Contoh Penggunaan CSR <br></br>Client Side Rendering</p>
+            </div>
+          </Link>
 
-          <a href="#" className={styles.card}>
-            <h2 className={styles.cardp}>CSS Module &rarr;</h2>
-            <p className={styles.cardp}>ini font nya dari Home.module.css pakai font Fira Sans</p>
-          </a>
+          <Link href='/meals/ssr'>
+            <div className={styles.card}>
+              <h2 className={styles.cardp}>SSR &rarr;</h2>
+              <p>Server Side Rendering <br></br>+ detail page with Dynamic Route</p>
+            </div>
+          </Link>
 
-          <a
-            href="#"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          <Link href='/meals/ssg'>
+            <div className={styles.card}>
+              <h2>SSG &rarr;</h2>
+              <p>Static Site Generation <br></br>+ detail page with Dynamic Route</p>
+            </div>
+          </Link>
 
-          <a
-            href="#"
-            className={styles.card}
-          >
-            <h2 className='cardh2'>CSS in JS &rarr;</h2>
-            <p className='cardh2'>ini font nya dari css in js pakai font Courier New</p>
-          </a>
+          <Link href='/meals/isr'>
+            <div className={styles.card}>
+              <h2 className='cardh2'>ISR &rarr;</h2>
+              <p>Contoh Penggunaan ISR <br></br>Incremental Static Regeneration</p>
+            </div>
+          </Link>
           <style jsx>
             {
               `
