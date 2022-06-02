@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 
 const ssr = ({data}) => {
@@ -16,10 +17,12 @@ const ssr = ({data}) => {
           <div className={styles.containercard}>
             {
               data.meals.map(meal => (
-                <div to={`/meal/${meal.idMeal}`} key={meal.idMeal} className={styles.cardku}>
-                  <Image width='100px' height='100px' src={meal.strMealThumb} alt={meal.strMeal} />
-                  <p style={{borderTop:'1px solid black', padding:'3px'}}>&#127858; {meal.strMeal}</p>
-                </div>
+                <Link href={{pathname:`/meals/detail-ssr/${meal.idMeal}`}} key={meal.idMeal}>
+                  <div className={styles.cardku}>
+                    <Image width='100px' height='100px' src={meal.strMealThumb} alt={meal.strMeal} />
+                    <p style={{borderTop:'1px solid black', padding:'3px'}}>&#127858; {meal.strMeal}</p>
+                  </div>
+                </Link>
               ))
             }
           </div>

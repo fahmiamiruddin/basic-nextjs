@@ -25,14 +25,14 @@ export default function Index() {
           <Link href='/meals/ssr'>
             <div className={styles.card}>
               <h2 className={styles.cardp}>SSR &rarr;</h2>
-              <p>Contoh Penggunaan SSR <br></br>Server Side Rendering</p>
+              <p>Server Side Rendering <br></br>+ detail page with Dynamic Route</p>
             </div>
           </Link>
 
           <Link href='/meals/ssg'>
             <div className={styles.card}>
               <h2>SSG &rarr;</h2>
-              <p>Contoh Penggunaan SSG <br></br>Static Site Generation.</p>
+              <p>Static Site Generation <br></br>+ detail page with Dynamic Route</p>
             </div>
           </Link>
 

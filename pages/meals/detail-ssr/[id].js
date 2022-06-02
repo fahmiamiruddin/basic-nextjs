@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
+import styles from '../../../styles/Home.module.css'
 
 const Meal = ({data}) => {
   const meal = data.meals[0];
@@ -8,10 +8,10 @@ const Meal = ({data}) => {
     <div className={styles.main}>
       <Head>
         <title>{meal.strMeal}</title>
-        <meta name="description" content="Fetch with SSG" />
+        <meta name="description" content="Fetch with SSR" />
       </Head>
       <h3>Detail Makanan</h3>
-      <p>Fetch with SSG</p>
+      <p>Fetch with SSR</p>
       {
         meal ? (
           <div style={{marginTop:'10px', padding:'10px'}}>
@@ -34,23 +34,7 @@ const Meal = ({data}) => {
 
 export default Meal
 
-export async function getStaticPaths() {
-  const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
-  const data = await res.json();
-  const meals = data.meals;
-  const path = meals.map(item => {
-    return {
-      params: {id: item.idMeal.toString()}
-    }
-  });
-
-  return {
-    paths: path,
-    fallback: false // false or 'blocking'
-  };
-}
-
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const id = ctx.params.id
   const res = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + id);
   const data = await res.json();
@@ -61,15 +45,3 @@ export async function getStaticProps(ctx) {
     }
   }
 }
-
-// export async function getServerSideProps(ctx) {
-//   const id = ctx.params.id
-//   const res = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + id);
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       data
-//     }
-//   }
-// }

@@ -81,32 +81,30 @@ const index = () => {
 
       <h3>Daftar Berita</h3>
       <button onClick={fetchNews}>Muat Berita Terbaru</button>
-      { news && news.map((item) => (
-        <div
-          key={item.id}
-          style={{
-            marginTop:'10px',
-            display:'grid',
-            gap:'20px',
-            gridTemplateColumns:'repeat(4, 1fr)',
-            cursor:'pointer'
-          }}
-        >
-          <Link 
-            href={{
-              pathname:`/news/${item.slug}`,
-              query:{title:item.title, content:item.content}
-            }}
-            as={{pathname:`/news/${item.slug}`}}
-          >
-            <div>
-              <Image src={item.img} alt="" width={200} height={200} style={{border:'1px solid grey'}}/>
-              <p style={{borderTop:'1px solid black', padding:'3px'}}><b>{item.title}</b></p>
-              <p>Img Url: {item.img}</p>
-            </div>
-          </Link>
-        </div>
-      )) }
+      {
+        news && news.length > 0 ? (
+          <div className={styles.containercard}>
+            {
+              news.map((item) => (
+                <Link href={{
+                    pathname:`/news/${item.slug}`,
+                    query:{title:item.title, content:item.content}
+                  }}
+                  as={{pathname:`/news/${item.slug}`}}
+                  key={item.id}
+                >
+                  <div className={styles.cardku}>
+                    <Image width='100px' height='100px' src={item.img} alt={item.title} />
+                    <p style={{borderTop:'1px solid black', padding:'3px'}}>&#127858; {item.title}</p>
+                  </div>
+                </Link>
+              ))
+            }
+          </div>
+        ) : (
+          <p></p>
+        )
+      }
     </div>
   )
 }

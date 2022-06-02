@@ -17,8 +17,8 @@ const ssg = ({data}) => {
           <div className={styles.containercard}>
             {
               data.meals.map(meal => (
-                <Link href={{pathname:`/meals/${meal.idMeal}`}} key={meal.idMeal}>
-                  <div to={`/meal/${meal.idMeal}`} key={meal.idMeal} className={styles.cardku}>
+                <Link href={{pathname:`/meals/detail-ssg/${meal.idMeal}`}} key={meal.idMeal}>
+                  <div className={styles.cardku}>
                     <Image width='100px' height='100px' src={meal.strMealThumb} alt={meal.strMeal} />
                     <p style={{borderTop:'1px solid black', padding:'3px'}}>&#127858; {meal.strMeal}</p>
                   </div>
