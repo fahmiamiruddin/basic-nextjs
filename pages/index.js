@@ -7,6 +7,11 @@ import ssImg from '../assets/ss.png'
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>NextJS</title>
+        <meta name="description" content="NextJS" />
+          <meta name="description" content="Learn Basic NextJS" />
+      </Head>
       <div className={styles.navwrapper}>
         <h3 className='none'>beritaagakngawur.com</h3>
         <nav>
@@ -19,6 +24,11 @@ export default function Home() {
             href='/news'
           >
             <a className={styles.navmenu}>News</a>
+          </Link>
+          <Link 
+            href='/meals'
+          >
+            <a className={styles.navmenu}>Meals</a>
           </Link>
           <Link 
             href={{pathname:'/about', query:{name:'fahmi',address:'ngawi'}}}
