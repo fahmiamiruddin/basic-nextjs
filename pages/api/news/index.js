@@ -22,7 +22,7 @@ export default function handler(req, res) {
     res.status(201).json(newNews);
   } else if (req.method === 'DELETE') {
     const id = req.id;
-    var removeIndex = news.map(item => id).indexOf(id);
+    var removeIndex = news.map(item => item.id).indexOf(id);
 
     removeIndex && news.splice(removeIndex, 1);
 
