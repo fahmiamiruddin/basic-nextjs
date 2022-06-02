@@ -137,3 +137,23 @@
 .cardp {  
   font-family: Fira Sans
 }
+
+.containercard {
+  margin-top: 10px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.containercard:hover,
+.containercard:focus,
+.containercard:active {
+  cursor: pointer;
+}
+
+.cardku {
+  border: 1px solid blue;
+  text-decoration: none;
+  padding: 5px;
+  color: black;
+}

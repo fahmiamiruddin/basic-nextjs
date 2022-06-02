@@ -28,22 +28,12 @@ const csr = () => {
       <p>Fetch with CSR</p>
       {
         meals && meals.length > 0 ? (
-          <div style={{
-            marginTop:'10px',
-            display:'grid',
-            gap:'20px',
-            gridTemplateColumns:'repeat(4, 1fr)'
-          }}>
+          <div className={styles.containercard}>
             {
               meals.map(meal => (
-                <div to={`/meal/${meal.idMeal}`} key={meal.idMeal} style={{
-                  border: '1px solid blue',
-                  textDecoration: 'none',
-                  padding:'5px',
-                  color: 'black' 
-                }}>
-                    <Image width='100px' height='100px' style={{ border:'1px solid grey'}} src={meal.strMealThumb} alt={meal.strMeal} />
-                    <p style={{borderTop:'1px solid black', padding:'3px'}}>&#127858; {meal.strMeal}</p>
+                <div to={`/meal/${meal.idMeal}`} key={meal.idMeal} className={styles.cardku}>
+                  <Image width='100px' height='100px' src={meal.strMealThumb} alt={meal.strMeal} />
+                  <p style={{borderTop:'1px solid black', padding:'3px'}}>&#127858; {meal.strMeal}</p>
                 </div>
               ))
             }
