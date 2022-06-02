@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import dynamic from 'next/dynamic'
+import styles from '@styles/Home.module.css'
 import ssImg from '../assets/ss.png'
+
+const DynamicComponent = dynamic(() => import('@components/Button'))
 
 export default function Home() {
   return (
@@ -41,6 +44,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <p>Selamat data di situs beritaagakngawur.com</p>
+        <DynamicComponent />
 
         <div className={styles.grid}>
           <a href="#" className={styles.card}>

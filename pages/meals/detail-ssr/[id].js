@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../../../styles/Home.module.css'
+import dynamic from 'next/dynamic'
+import styles from '@styles/Home.module.css'
+
+const MealDetail = dynamic(() => import('@components/MealDetail'))
 
 const Meal = ({data}) => {
   const meal = data.meals[0];
@@ -14,16 +16,7 @@ const Meal = ({data}) => {
       <p>Fetch with SSR</p>
       {
         meal ? (
-          <div style={{marginTop:'10px', padding:'10px'}}>
-            <Image width='500px' height='300px' src={meal.strMealThumb} alt={meal.strMeal} />
-            <h3>&#127858; Nama Makanan : {meal.strMeal}</h3>
-            <hr/>
-            <p>&#127988; asal makanan: {meal.strArea}</p>
-            <p>&#127860; kategori makanan: {meal.strCategory}</p>
-            <p>&#128250; turorial masak: <a target="_blank" href={meal.strYoutube} className='none'>{meal.strYoutube}</a></p>
-            <p>&#128279;	sumber: <a target="_blank" href={meal.strSource} className='none'>website</a></p>
-            <p>&#127859;	cara masak: {meal.strInstructions}</p>
-          </div>
+          <MealDetail data={meal} />
         ) : (
           <p>Loading . . .</p>
         )

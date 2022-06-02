@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
+import styles from '@styles/Home.module.css'
 import ssImg from '../../assets/ss.png'
 
 const Berita = () => {
