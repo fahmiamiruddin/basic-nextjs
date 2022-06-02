@@ -24,8 +24,8 @@ export default function Index() {
 
           <Link href='/meals/ssr'>
             <div className={styles.card}>
-              <h2>SSR &rarr;</h2>
-              <p >Contoh Penggunaan SSR <br></br>Server Side Rendering</p>
+              <h2 className={styles.cardp}>SSR &rarr;</h2>
+              <p>Contoh Penggunaan SSR <br></br>Server Side Rendering</p>
             </div>
           </Link>
 
@@ -38,10 +38,19 @@ export default function Index() {
 
           <Link href='/meals/isr'>
             <div className={styles.card}>
-              <h2>ISR &rarr;</h2>
+              <h2 className='cardh2'>ISR &rarr;</h2>
               <p>Contoh Penggunaan ISR <br></br>Incremental Static Regeneration</p>
             </div>
           </Link>
+          <style jsx>
+            {
+              `
+                .cardh2 {
+                  font-family: Courier New
+                }
+              `
+            }
+          </style>
         </div>
 
       </main>

@@ -26,17 +26,32 @@ const csr = () => {
       </Head>
       <h3>Daftar Makanan</h3>
       <p>Fetch with CSR</p>
-      { meals && meals.length > 0 ? (meals.map((item) => (
-        <div key={item.idMeal} style={{ marginTop:'10px', display:'grid', gap:'20px', gridTemplateColumns:'repeat(4, 1fr)', cursor:'pointer' }} >
-            <div>
-              <Image src={item.strMealThumb} alt="" width={200} height={200}/>
-              <p style={{borderTop:'1px solid black', padding:'3px'}}><b>{item.strMeal}</b></p>
-              <p>Img Url: {item.strMealThumb}</p>
-            </div>
-        </div>
-      ))) : (
-        <p>Loading . . .</p>
-      ) }
+      {
+        meals && meals.length > 0 ? (
+          <div style={{
+            marginTop:'10px',
+            display:'grid',
+            gap:'20px',
+            gridTemplateColumns:'repeat(4, 1fr)'
+          }}>
+            {
+              meals.map(meal => (
+                <div to={`/meal/${meal.idMeal}`} key={meal.idMeal} style={{
+                  border: '1px solid blue',
+                  textDecoration: 'none',
+                  padding:'5px',
+                  color: 'black' 
+                }}>
+                    <Image width='100px' height='100px' style={{ border:'1px solid grey'}} src={meal.strMealThumb} alt={meal.strMeal} />
+                    <p style={{borderTop:'1px solid black', padding:'3px'}}>&#127858; {meal.strMeal}</p>
+                </div>
+              ))
+            }
+          </div>
+        ) : (
+          <p>Loading . . .</p>
+        )
+      }
     </div>
   )
 }
