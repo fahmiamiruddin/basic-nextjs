@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@styles/Home.module.css'
 
-const isr = ({data}) => {
+const Isr = ({data}) => {
   return (
     <div className={styles.main}>
       <Head>
@@ -31,7 +31,7 @@ const isr = ({data}) => {
   )
 }
 
-export default isr
+export default Isr
 
 export async function getStaticProps() {
   const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');

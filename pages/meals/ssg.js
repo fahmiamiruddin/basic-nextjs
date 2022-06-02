@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@styles/Home.module.css'
 
-const ssg = ({data}) => {
+const Ssg = ({data}) => {
   return (
     <div className={styles.main}>
       <Head>
@@ -34,7 +34,7 @@ const ssg = ({data}) => {
   )
 }
 
-export default ssg
+export default Ssg
 
 export async function getStaticProps() {
   const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');

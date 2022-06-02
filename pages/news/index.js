@@ -5,7 +5,7 @@ import Image from 'next/image'
 // import {news} from '../../data'
 import styles from '@styles/Home.module.css'
 
-const index = () => {
+const Index = () => {
   const [title, setTitle] = useState([]);
   const [slug, setSlug] = useState([]);
   const [content, setContent] = useState([]);
@@ -109,4 +109,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

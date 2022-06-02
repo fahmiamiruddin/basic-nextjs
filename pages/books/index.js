@@ -4,7 +4,7 @@ import Head from 'next/head'
 // import {books} from '../../data'
 import styles from '@styles/Home.module.css'
 
-const index = () => {
+const Index = () => {
   const [title, setTitle] = useState([]);
   const [slug, setSlug] = useState([]);
   const [category, setCategory] = useState([]);
@@ -82,15 +82,11 @@ const index = () => {
       <button onClick={fetchBooks}>Get the latest books</button>
       { books && books.map((item) => (
         <ul key={item.id}>
-          <Link 
-            href={{pathname:`/books/${item.category}/${item.title}/${item.author}`}}
-          >
-            <li>{item.title}</li>
-          </Link>
+          <li>{item.title}</li>
         </ul>
       )) }
     </div>
   )
 }
 
-export default index
+export default Index

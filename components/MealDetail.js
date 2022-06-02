@@ -8,8 +8,8 @@ const MealDetail = ({data}) => {
       <hr/>
       <p>&#127988; asal makanan: {data.strArea}</p>
       <p>&#127860; kategori makanan: {data.strCategory}</p>
-      <p>&#128250; turorial masak: <a target="_blank" href={data.strYoutube} className='none'>{data.strYoutube}</a></p>
-      <p>&#128279;	sumber: <a target="_blank" href={data.strSource} className='none'>website</a></p>
+      <p>&#128250; turorial masak: <a target="_blank" rel="noopener noreferrer" href={data.strYoutube} className='none'>{data.strYoutube}</a></p>
+      <p>&#128279;	sumber: <a target="_blank" rel="noopener noreferrer" href={data.strSource} className='none'>website</a></p>
       <p>&#127859;	cara masak: {data.strInstructions}</p>
     </div>
   )
