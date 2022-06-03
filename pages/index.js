@@ -13,7 +13,7 @@ export default function Home() {
       <Head>
         <title>NextJS</title>
         <meta name="description" content="NextJS" />
-          <meta name="description" content="Learn Basic NextJS" />
+        <meta name="description" content="Learn Basic NextJS" />
       </Head>
       <div className={styles.navwrapper}>
         <h3 className='none'>{process.env.webname}</h3>
@@ -22,6 +22,11 @@ export default function Home() {
             href='/books'
           >
             <a className={styles.navmenu}>Books</a>
+          </Link>
+          <Link 
+            href='/categories'
+          >
+            <a className={styles.navmenu}>Categories</a>
           </Link>
           <Link 
             href='/news'
