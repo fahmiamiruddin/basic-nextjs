@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useQuery } from '@apollo/client'
-import { GET_CATEGORY_BY_ID } from './schema'
+import { GET_CATEGORY_BY_ID } from '../../schema'
 import { useRouter } from 'next/router'
 
 const Category = () => {

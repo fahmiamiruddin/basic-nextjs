@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@styles/Home.module.css'
-import useStyles from './style'
+import useStyles from '../../styles/style'
 import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/client'
-import { GET_PRODUCT_BY_SKU } from '../categories/schema'
+import { GET_PRODUCT_BY_SKU } from '../../schema'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles';
 

@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import styles from '@styles/Home.module.css'
 import ssImg from '../assets/ss.png'
 import { useQuery, useMutation } from '@apollo/client'
-import { POST_SUBSCRIBE, GET_CATEGORIES } from './categories/schema'
+import { POST_SUBSCRIBE, GET_CATEGORIES } from '../schema'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { useState } from "react"

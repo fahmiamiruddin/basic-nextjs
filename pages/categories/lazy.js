@@ -1,5 +1,5 @@
 import { useLazyQuery } from '@apollo/client'
-import {GET_CATEGORIES} from './schema'
+import {GET_CATEGORIES} from '../../schema'
 import styles from '@styles/Home.module.css'
 import Head from 'next/head'
 import Link from 'next/link';
