@@ -8,6 +8,10 @@ import { GET_PRODUCT_BY_SKU } from '../../schema'
 import Button from '@material-ui/core/Button'
 import Skeleton from '@material-ui/lab/Skeleton'
 import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
+import Subscribe from '@components/Subscribe'
+import Nav from '@components/Nav'
 
 const Product = () => {
   const classes = useStyles();
@@ -22,23 +26,28 @@ const Product = () => {
 
   if (loading) {
     return (
-      <div className={styles.main}>
-        <Typography component="div" variant="h3">
-          <Skeleton variant="text" width={300} animation="wave" />
-        </Typography>
-        <div style={{marginTop:'10px', padding:'10px'}}>
-          <Skeleton variant="rect" width={500} height={300} animation="wave" />
-          <Typography component="div" variant="h3">
-            <Skeleton variant="text" width={700} animation="wave" />
-          </Typography>
-          <Skeleton variant="text" width={300} animation="wave" />
-          <Typography component="div" variant="h3">
-            <Skeleton variant="text" width={300} animation="wave" />
-          </Typography>
-          <Skeleton variant="text" width={300} animation="wave" />
-          <Skeleton variant="text" width="100%" height={300} animation="wave" />
-        </div>
-      </div>
+      <Container maxWidth="lg">
+        <Box sx={{ height: '100vh'}}>
+          <Nav/>
+          <div className={styles.main}>
+            <Typography component="div" variant="h3">
+              <Skeleton variant="text" width={300} animation="wave" />
+            </Typography>
+            <div style={{marginTop:'10px', padding:'10px'}}>
+              <Skeleton variant="rect" width={500} height={300} animation="wave" />
+              <Typography component="div" variant="h3">
+                <Skeleton variant="text" width={700} animation="wave" />
+              </Typography>
+              <Skeleton variant="text" width={300} animation="wave" />
+              <Typography component="div" variant="h3">
+                <Skeleton variant="text" width={130} height={48} animation="wave" />
+              </Typography>
+              <Skeleton variant="text" width={300} animation="wave" />
+              <Skeleton variant="text" width="100%" height={300} animation="wave" />
+            </div>
+          </div>
+        </Box>
+      </Container>
     );
   }
 
@@ -48,29 +57,35 @@ const Product = () => {
   const product = products.items;
 
   return (
-    <div className={styles.main}>
-      <Head>
-        <title>{sku}</title>
-        <meta name="description" content="Fetch with SSG" />
-      </Head>
-      <h3>Detail Produk</h3>
-      {
-        product[0] ? (
-          <div style={{marginTop:'10px', padding:'10px'}}>
-            <Image width='500px' height='300px' src={product[0].image?.url} alt={product[0].name} />
-            <h3>&#128203; Nama produk : {product[0].name}</h3>
-            <hr/>
-            <p>&#128180; harga: {product[0].price.regularPrice.amount.currency} {product[0].price.regularPrice.amount.value}</p>
-            <p><Button className={classes.root} variant="contained" color="primary">Add To Cart</Button></p>
-            <p>&#127988; deskripsi: 
-              <span dangerouslySetInnerHTML={{ __html: product[0].description.html }} />
-            </p>
-          </div>
-        ) : (
-          <p>Loading . . .</p>
-        )
-      }
-    </div>
+    <Container maxWidth="lg">
+      <Box sx={{ height: '100vh'}}>
+        <Nav/>
+        <div className={styles.main}>
+          <Head>
+            <title>{sku}</title>
+            <meta name="description" content="Fetch with SSG" />
+          </Head>
+          <h3>Detail Produk</h3>
+          {
+            product[0] ? (
+              <div style={{marginTop:'10px', padding:'10px'}}>
+                <Image width='500px' height='300px' src={product[0].image?.url} alt={product[0].name} />
+                <h3>&#128203; Nama produk : {product[0].name}</h3>
+                <hr/>
+                <p>&#128180; harga: {product[0].price.regularPrice.amount.currency} {product[0].price.regularPrice.amount.value}</p>
+                <p><Button className={classes.root} variant="contained" color="primary">Add To Cart</Button></p>
+                <p>&#127988; deskripsi: 
+                  <span dangerouslySetInnerHTML={{ __html: product[0].description.html }} />
+                </p>
+                <Subscribe/>
+              </div>
+            ) : (
+              <p>Loading . . .</p>
+            )
+          }
+        </div>
+      </Box>
+    </Container>
   )
 }
 
