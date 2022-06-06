@@ -31,14 +31,13 @@ const Subscribe = () => {
   return ( 
     <form noValidate autoComplete="off">
       <p>subscribe untuk mendapatkan info terbaru dari {process.env.webname}</p>
+      {showerror && <p style={{color:'red'}}>{message}</p>}
+      {showsuccess && <p style={{color:'green'}}>{message}</p>}
       <TextField id="standard-basic" label="Email" type="email"
         value={dataemail}
         onChange={(e) => setDataemail(e.target.value)}
       />
       <Button variant="contained" color="primary" onClick={subscribeEmail}>Subscribe</Button>
-      <br/>
-      {showerror && <p style={{color:'red'}}>{message}</p>}
-      {showsuccess && <p style={{color:'green'}}>{message}</p>}
     </form>
   )
 }
