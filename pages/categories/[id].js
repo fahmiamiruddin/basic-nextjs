@@ -9,7 +9,9 @@ import Skeleton from '@material-ui/lab/Skeleton'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
 import Nav from '@components/Nav'
+import ProductCard from '@components/Product/ProductCard'
 
 const Category = () => {
   const router = useRouter();
@@ -33,13 +35,15 @@ const Category = () => {
             <h3>Product List</h3>
 
             {
-              <div className={styles.containercard}>
+              <Grid container spacing={3}>
                 {
-                  Array.from(new Array(8)).map((index) => (
-                    <Skeleton key={index} variant="rect" width={325} height={187} animation="wave" />
+                  Array.from(new Array(6)).map((data, index) => (
+                    <Grid item xs={4} key={index}>
+                      <Skeleton key={index} variant="rect" width={350} height={315} animation="wave" />
+                    </Grid>
                   ))
                 }
-              </div>
+              </Grid>
             }
           </div>
         </Box>
@@ -65,19 +69,16 @@ const Category = () => {
           <h3>Product List</h3>
 
           {
-            products.items && products.items.length > 0 ? (
-              <div className={styles.containercard}>
-                {
-                  products.items.map(product => (
-                    <Link href={{pathname:`/products/${product.sku}`}} key={product.id}>
-                      <div className={styles.cardku}>
-                        <Image width='100px' height='100px' src={product.image?.url} alt={product.name} />
-                        <p style={{borderTop:'1px solid black', padding:'3px'}}>{product.name}</p>
-                      </div>
-                    </Link>
-                  ))
-                }
-              </div>
+            products.items && products.items.length > 0 ? (              
+              <Grid container spacing={3}>
+                  {
+                    products.items.map(product => (
+                      <Grid item xs={4} key={product.id}>
+                        <ProductCard data={product} />
+                      </Grid>
+                    ))
+                  }
+              </Grid>
             ) : (
               <p>Loading . . .</p>
             )
