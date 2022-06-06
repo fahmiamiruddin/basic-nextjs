@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     height: 48,
     padding: '0 30px',
+    [theme.breakpoints.down('md')]: {
+      color: 'black',
+    },
   },
 }));
 

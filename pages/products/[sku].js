@@ -6,19 +6,8 @@ import { useRouter } from 'next/router'
 import { useQuery } from '@apollo/client'
 import { GET_PRODUCT_BY_SKU } from '../../schema'
 import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles';
-
-// const useStyles = makeStyles({
-//   root: {
-//     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-//     border: 0,
-//     borderRadius: 3,
-//     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-//     color: 'white',
-//     height: 48,
-//     padding: '0 30px',
-//   },
-// });
+import Skeleton from '@material-ui/lab/Skeleton'
+import Typography from '@material-ui/core/Typography'
 
 const Product = () => {
   const classes = useStyles();
@@ -31,7 +20,28 @@ const Product = () => {
     }
   });
 
-  if (loading) return <p>Loading ...</p>;
+  if (loading) {
+    return (
+      <div className={styles.main}>
+        <Typography component="div" variant="h3">
+          <Skeleton variant="text" width={300} animation="wave" />
+        </Typography>
+        <div style={{marginTop:'10px', padding:'10px'}}>
+          <Skeleton variant="rect" width={500} height={300} animation="wave" />
+          <Typography component="div" variant="h3">
+            <Skeleton variant="text" width={700} animation="wave" />
+          </Typography>
+          <Skeleton variant="text" width={300} animation="wave" />
+          <Typography component="div" variant="h3">
+            <Skeleton variant="text" width={300} animation="wave" />
+          </Typography>
+          <Skeleton variant="text" width={300} animation="wave" />
+          <Skeleton variant="text" width="100%" height={300} animation="wave" />
+        </div>
+      </div>
+    );
+  }
+
   if (error) return `Error! ${error}`;
 
   const {products} = data;

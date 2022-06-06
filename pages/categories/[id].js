@@ -4,7 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useQuery } from '@apollo/client'
 import { GET_CATEGORY_BY_ID } from '../../schema'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router' 
+import Skeleton from '@material-ui/lab/Skeleton'
+import Typography from '@material-ui/core/Typography'
 
 const Category = () => {
   const router = useRouter();
@@ -14,10 +16,33 @@ const Category = () => {
       categoryId: id
     }
   });
-  if (loading) return <p>Loading ...</p>;
+
+  if (loading) {
+    return (
+      <div className={styles.main}>
+        <Skeleton variant="rect" width={500} height={300} animation="wave" />
+        <Typography component="div" variant="h1">
+          <Skeleton variant="text" width={300} animation="wave" />
+        </Typography>
+        <h3>Product List</h3>
+
+        {
+          <div className={styles.containercard}>
+            {
+              Array.from(new Array(8)).map((index) => (
+                <Skeleton key={index} variant="rect" width={325} height={187} animation="wave" />
+              ))
+            }
+          </div>
+        }
+      </div>
+    );
+  }
+
   if (error) return `Error! ${error}`;
   const {category} = data;
   const products = category.products;
+  
   return (
     <div className={styles.main}>
       <Head>
